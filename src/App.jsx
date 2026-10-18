@@ -30,9 +30,7 @@ const skills = [
 function Navbar() {
   return (
     <header className="navbar">
-      <a className="logo" href="#home" aria-label="Home">
-        dev<span>.</span>
-      </a>
+      
 
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
@@ -277,7 +275,9 @@ function Contact() {
 
       <a
         className="primary-button"
-        href="aswinsuresh259@gmail.com"
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=aswinsuresh259@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Get in touch ↗
       </a>
