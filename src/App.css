@@ -795,3 +795,107 @@ h1 {
   color: #ffffff;
 }
 
+
+/* Interactive cursor particle layer */
+.cursor-particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Keep the effect subtle on small screens */
+@media (max-width: 768px) {
+  .cursor-particles {
+    opacity: 0.65;
+  }
+}
+
+
+/* Interactive MedChecker project card */
+.interactive-project-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.interactive-project-card:hover {
+  border-color: rgba(167, 139, 250, 0.8);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(139, 92, 246, 0.15);
+}
+
+/* Keep the interaction comfortable on touch devices */
+@media (hover: none) {
+  .interactive-project-card {
+    will-change: auto;
+  }
+}
+
+
+/* Animated skills section */
+.skills-list {
+  justify-content: center;
+  gap: 14px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #a78bfa30;
+  background: #a78bfa0c;
+  color: #ded3ff;
+  border-radius: 9px;
+  padding: 12px 17px;
+  cursor: default;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.skill-pill:hover {
+  border-color: #a78bfa;
+  background: #a78bfa1c;
+  box-shadow: 0 5px 22px #8b5cf622;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-pill {
+    transition: none;
+  }
+}
+
+.constellation-background {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep portfolio content above the background. */
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+#root > *:not(.constellation-background) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .constellation-background {
+    animation: none;
+  }
+}

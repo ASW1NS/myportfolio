@@ -1,5 +1,10 @@
 
 import "./App.css";
+import Reveal from "./Reveal";
+import { motion, useReducedMotion } from "motion/react";
+import InteractiveProjectCard from "./InteractiveProjectCard";
+import CursorParticles from "./CursorParticles";
+import ConstellationBackground from "./ConstellationBackground";
 
 const projects = [
   {
@@ -30,7 +35,9 @@ const skills = [
 function Navbar() {
   return (
     <header className="navbar">
-      
+      <a className="logo" href="#home">
+        Aswin Suresh
+      </a>
 
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
@@ -54,19 +61,36 @@ function Hero() {
         </div>
 
 
-        <h1>
-          Aswin Suresh<span className="gradient-text">.</span>
-          <br />
-          <span className="muted-title">
-            Developer in progress.
-          </span>
-        </h1>
+        
+<motion.h1
+  initial={{ opacity: 0, y: 35 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+  
+  <motion.span
+    className="muted-title"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.3 }}
+  >
+    Developer in progress.
+  </motion.span>
+</motion.h1>
 
-        <p className="hero-description">
-          I'm an MCA student passionate about building
-          useful applications, solving problems, and
-          learning modern technologies.
-        </p>
+
+        
+<motion.p
+  className="hero-description"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7, delay: 0.5 }}
+>
+  I'm an MCA student passionate about building
+  useful applications, solving problems, and
+  learning modern technologies.
+</motion.p>
+
 
         <div className="hero-actions">
           <a className="primary-button" href="#projects">
@@ -158,6 +182,7 @@ function About() {
       className="section-wrap content-section"
       id="about"
     >
+      <Reveal>
       <p className="eyebrow">01 / ABOUT ME</p>
 
       <h2>
@@ -174,6 +199,7 @@ function About() {
         I'm looking for an internship where I can
         contribute to real projects and grow as a developer.
       </p>
+      </Reveal>
     </section>
   );
 }
@@ -184,6 +210,7 @@ function Projects() {
       className="section-wrap content-section"
       id="projects"
     >
+      <Reveal>
       <p className="eyebrow">02 / SELECTED WORK</p>
 
       <h2>
@@ -193,10 +220,7 @@ function Projects() {
 
       <div className="project-grid">
         {projects.map((project, index) => (
-          <article
-            className="project-card"
-            key={project.title}
-          >
+          <InteractiveProjectCard key={project.title}>
             <div className="project-top">
               <span>
                 PROJECT {String(index + 1).padStart(2, "0")}
@@ -228,12 +252,14 @@ function Projects() {
             >
               View source code ↗
             </a>
-          </article>
+          </InteractiveProjectCard>
         ))}
       </div>
+      </Reveal>
     </section>
   );
 }
+
 
 function Skills() {
   return (
@@ -241,23 +267,48 @@ function Skills() {
       className="section-wrap content-section"
       id="skills"
     >
-      <p className="eyebrow">03 / MY TOOLKIT</p>
+      <Reveal>
+        <p className="eyebrow">03 / MY TOOLKIT</p>
 
-      <h2>
-        Technologies I use
-        <span className="gradient-text">.</span>
-      </h2>
+        <h2>
+          Technologies I use
+          <span className="gradient-text">.</span>
+        </h2>
 
-      <div className="skills-list">
-        {skills.map((skill) => (
-          <span className="skill-pill" key={skill}>
-            {skill}
-          </span>
-        ))}
-      </div>
+        <div className="skills-list">
+          {skills.map((skill, index) => (
+            <motion.span
+              className="skill-pill"
+              key={skill}
+              initial={{ opacity: 0, y: 25, scale: 0.9 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+              }}
+              whileHover={{
+                y: -5,
+                scale: 1.05,
+              }}
+              viewport={{
+                once: false,
+                amount: 0.1,
+              }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.07,
+                ease: "easeOut",
+              }}
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }
+
 
 function Contact() {
   return (
@@ -265,6 +316,7 @@ function Contact() {
       className="section-wrap contact-section"
       id="contact"
     >
+      <Reveal>
       <p className="eyebrow">04 / CONTACT</p>
 
       <h2>Let's build something.</h2>
@@ -281,6 +333,7 @@ function Contact() {
       >
         Get in touch ↗
       </a>
+      </Reveal>
     </section>
   );
 }
@@ -289,10 +342,10 @@ function Footer() {
   return (
     <footer className="footer">
       <a className="logo" href="#home">
-        dev<span>.</span>
+        Aswin Suresh
       </a>
 
-      <p>Designed and built with React.js</p>
+      <p>@2026-Portfolio</p>
 
       <a href="#home">Back to top ↑</a>
     </footer>
@@ -302,6 +355,7 @@ function Footer() {
 function App() {
   return (
     <>
+    <ConstellationBackground />
       <Navbar />
 
       <main>
