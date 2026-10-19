@@ -701,6 +701,7 @@ h1 {
   }
 }
 
+
 /* =========================
    13. MOBILE RESPONSIVENESS
 ========================= */
@@ -708,6 +709,10 @@ h1 {
 @media (max-width: 560px) {
   .section-wrap {
     width: 90%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 
   .navbar {
@@ -757,6 +762,11 @@ h1 {
   }
 
   .contact-section {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
     padding: 40px 18px;
   }
 
@@ -766,6 +776,7 @@ h1 {
     text-align: center;
   }
 }
+
 
 /* =========================
    14. ACCESSIBILITY

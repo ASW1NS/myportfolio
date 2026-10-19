@@ -341,11 +341,9 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      <a className="logo" href="#home">
-        Aswin Suresh
-      </a>
+      
 
-      <p>@2026-Portfolio</p>
+      <p>@All Rights Reserved</p>
 
       <a href="#home">Back to top ↑</a>
     </footer>
