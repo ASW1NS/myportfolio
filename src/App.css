@@ -734,7 +734,7 @@ h1 {
   }
 
   .hero-art {
-    min-height: 310px;
+    min-height: 280px;
   }
 
   .orbit-one {
@@ -744,9 +744,16 @@ h1 {
   .orbit-two {
     width: 220px;
   }
+  .code-card {
+    width: 85%;
+    max-width: 280px;
+    margin-inline: auto;
+    box-sizing: border-box;
+   }
 
   .code-card pre {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
+    overflow: auto;
   }
 
   .project-grid {
